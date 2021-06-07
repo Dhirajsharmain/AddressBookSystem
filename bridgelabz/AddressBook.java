@@ -6,6 +6,6 @@ public class AddressBook {
      * @param args
      */
     public static void main(String[] args) {
-        System.err.println("Welcome to address book system program");
+        System.out.println("Welcome to address book system program");
     }
 }
