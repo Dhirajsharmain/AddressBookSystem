@@ -12,6 +12,7 @@ public class AddressBook {
 
     /**
      * this is the main method, Here is the starting point of the program.
+     *
      * @param args
      */
     public static void main(String[] args) {
@@ -22,8 +23,8 @@ public class AddressBook {
         int userInput = 0;
         while (!isExit) {
             userInput = scanner.nextInt();
-        }
-            switch (userInput){
+
+            switch (userInput) {
                 case 1:
                     //add
                     Person person = new Person();
@@ -32,10 +33,17 @@ public class AddressBook {
                     person.setFirstName(scanner.next());
                     break;
                 case 2:
-                    //delete
+                    //Show
+                    System.out.println(personList);
+                    break;
+                case 3:
+                    //Show
+                    isExit = true;
                     break;
                 default:
                     System.out.println("Please select correct option");
             }
+        }
+
     }
 }
