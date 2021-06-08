@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class AddressBook {
 
     private static Scanner scanner = new Scanner(System.in);
+    private static List<Person> personList = new ArrayList<>();
 
     /**
      * this is the main method, Here is the starting point of the program.
@@ -17,8 +18,6 @@ public class AddressBook {
      */
     public static void main(String[] args) {
         System.out.println("Welcome to address book system program");
-        List<Person> personList = new ArrayList<>();
-        Person person = new Person();
         boolean isExit = false;
 
         while (!isExit) {
@@ -34,22 +33,7 @@ public class AddressBook {
             switch (userInput) {
                 case 1:
                     //add
-                    System.out.print("Enter First Name : ");
-                    person.setFirstName(scanner.next());
-                    System.out.print("Enter Last Name : ");
-                    person.setLastName(scanner.next());
-                    System.out.print("Enter Address : ");
-                    scanner.nextLine();
-                    person.setAddress(scanner.nextLine());
-                    System.out.print("Enter City : ");
-                    person.setCity(scanner.next());
-                    System.out.print("Enter ZipCode : ");
-                    person.setZip(scanner.next());
-                    System.out.print("Enter State : ");
-                    person.setState(scanner.next());
-                    System.out.print("Enter Mobile Number : ");
-                    person.setMobileNumber(scanner.next());
-                    personList.add(person);
+                    addContact(1);
                     break;
                 case 4:
                     //Show
@@ -64,5 +48,29 @@ public class AddressBook {
             }
         }
 
+    }
+
+    /**
+     * method for add new contact to the address book
+     * @param action
+     */
+    private static void addContact(int action){
+        Person person = new Person();
+        System.out.print("Enter First Name : ");
+        person.setFirstName(scanner.next());
+        System.out.print("Enter Last Name : ");
+        person.setLastName(scanner.next());
+        System.out.print("Enter Address : ");
+        scanner.nextLine();
+        person.setAddress(scanner.nextLine());
+        System.out.print("Enter City : ");
+        person.setCity(scanner.next());
+        System.out.print("Enter ZipCode : ");
+        person.setZip(scanner.next());
+        System.out.print("Enter State : ");
+        person.setState(scanner.next());
+        System.out.print("Enter Mobile Number : ");
+        person.setMobileNumber(scanner.next());
+        personList.add(person);
     }
 }
