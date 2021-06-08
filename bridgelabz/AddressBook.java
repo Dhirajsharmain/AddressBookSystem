@@ -96,7 +96,7 @@ public class AddressBook {
         for (int i = 0; i < personList.size(); i++) {
             if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
                 filteredList.add(personList.get(i));
-            }else {
+            } else {
                 System.out.println("Record not exist");
             }
         }
@@ -130,14 +130,14 @@ public class AddressBook {
         }
     }
 
-    private static void deletePerson(){
+    private static void deletePerson() {
         System.out.print("\nEnter the first name of the person to delete : ");
         String firstName = scanner.nextLine();
         for (int i = 0; i < personList.size(); i++) {
             if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
                 personList.remove(i);
                 System.out.println("Deleted Successfully");
-            }else {
+            } else {
                 System.out.println("Record not exist");
             }
         }
