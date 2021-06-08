@@ -9,6 +9,16 @@ public class Person {
     private String zip;
     private String mobileNumber;
 
+    /**
+     * here is the constructor for person object
+     * @param firstName
+     * @param lastName
+     * @param address
+     * @param city
+     * @param state
+     * @param zip
+     * @param mobileNumber
+     */
     public Person(String firstName, String lastName, String address, String city, String state, String zip, String mobileNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -18,6 +28,7 @@ public class Person {
         this.zip = zip;
         this.mobileNumber = mobileNumber;
     }
+
 
     public String getFirstName() {
         return firstName;

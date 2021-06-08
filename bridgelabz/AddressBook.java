@@ -19,58 +19,115 @@ public class AddressBook {
     public static void main(String[] args) {
         System.out.println("Welcome to address book system program");
         boolean isExit = false;
-
-        while (!isExit) {
+        do {
             System.out.println("\n\t\tAddress Book System");
-            System.out.println("\n\t\tEnter 1 to Add Person ");
-            System.out.println("\t\tEnter 2 to Delete Person");
-            System.out.println("\t\tEnter 3 to Edit Person");
-            System.out.println("\t\tEnter 4 to Show Person Detail");
-            System.out.println("\t\tEnter 5 to Quit ");
+            System.out.println("\n\t\tEnter A to Add Person ");
+            System.out.println("\t\tEnter E to Edit Person");
+            System.out.println("\t\tEnter D to Delete Person");
+            System.out.println("\t\tEnter S to Show Person Detail");
+            System.out.println("\t\tEnter Q to Quit ");
             System.out.print("\t\tPlease Select One Option : ");
-            //char userInput = scanner.nextLine().toUpperCase().charAt(0);
-            int userInput = scanner.nextInt();
+            String userInput = scanner.nextLine();
             switch (userInput) {
-                case 1:
+                case "A":
                     //add
-                    addContact(1);
+                    addContact();
                     break;
-                case 4:
+                case "E":
+                    //edit
+                    editContact();
+                    break;
+                case "D":
+                    //delete
+                    break;
+                case "S":
                     //Show
-                    System.out.println("\n\t\t"+personList.get(personList.size() - 1).toString());
+                    System.out.println("\n\t\t" + personList.get(personList.size() - 1).toString());
                     break;
-                case 5:
+                case "Q":
                     //Show
                     isExit = true;
                     break;
                 default:
                     System.out.println("Please select correct option");
             }
-        }
+        } while (!isExit);
 
     }
 
     /**
      * method for add new contact to the address book
-     * @param action
      */
-    private static void addContact(int action){
-        Person person = new Person();
-        System.out.print("Enter First Name : ");
-        person.setFirstName(scanner.next());
-        System.out.print("Enter Last Name : ");
-        person.setLastName(scanner.next());
-        System.out.print("Enter Address : ");
+    private static void addContact() {
+        Person newPerson = new Person();
         scanner.nextLine();
-        person.setAddress(scanner.nextLine());
-        System.out.print("Enter City : ");
-        person.setCity(scanner.next());
-        System.out.print("Enter ZipCode : ");
-        person.setZip(scanner.next());
-        System.out.print("Enter State : ");
-        person.setState(scanner.next());
-        System.out.print("Enter Mobile Number : ");
-        person.setMobileNumber(scanner.next());
-        personList.add(person);
+        System.out.print("Enter Firstname: ");
+        newPerson.setFirstName(scanner.nextLine());
+
+        System.out.print("Enter Lastname: ");
+        newPerson.setLastName(scanner.nextLine());
+
+        System.out.print("Enter Address: ");
+        newPerson.setAddress(scanner.nextLine());
+
+        System.out.print("Enter City: ");
+        newPerson.setCity(scanner.nextLine());
+
+        System.out.print("Enter State: ");
+        newPerson.setState(scanner.nextLine());
+
+        System.out.print("Enter Zip: ");
+        newPerson.setZip(scanner.nextLine());
+
+        System.out.print("Enter Phone Number: ");
+        newPerson.setMobileNumber(scanner.nextLine());
+
+        personList.add(newPerson);
+        System.out.println(personList.toString());
     }
+
+    /**
+     * Method for edit existing contact
+     */
+    private static void editContact() {
+        System.out.print("\nEnter the first name of the person to edit : ");
+        String firstName = scanner.nextLine();
+        ArrayList<Person> filteredList = new ArrayList<Person>();
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                filteredList.add(personList.get(i));
+            }else {
+                System.out.println("Record not exist");
+            }
+        }
+        if (null != filteredList && filteredList.size() >= 1) {
+            Person person = filteredList.get(0);
+            System.out.print("\nEnter Lastname: ");
+            person.setLastName(scanner.nextLine());
+
+            System.out.print("Enter Address: ");
+            person.setAddress(scanner.nextLine());
+
+            System.out.print("Enter City: ");
+            person.setCity(scanner.nextLine());
+
+            System.out.print("Enter State: ");
+            person.setState(scanner.nextLine());
+
+            System.out.print("Enter Zip: ");
+            person.setZip(scanner.nextLine());
+
+            System.out.print("Enter Phone Number: ");
+            person.setMobileNumber(scanner.nextLine());
+
+            for (int j = 0; j < personList.size(); j++) {
+                if (personList.get(j).getFirstName().equalsIgnoreCase(person.getFirstName())) {
+                    personList.set(j, person);
+                }
+            }
+
+            System.out.println(personList.toString());
+        }
+    }
+
 }
