@@ -130,6 +130,9 @@ public class AddressBook {
         }
     }
 
+    /**
+     * Method for deleting the person from existing address book
+     */
     private static void deletePerson() {
         System.out.print("\nEnter the first name of the person to delete : ");
         String firstName = scanner.nextLine();
