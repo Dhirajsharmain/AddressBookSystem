@@ -19,3 +19,8 @@
 
 **_Description_** : Ability to edit existing contact person using their name
 - use console to edit person detail.
+
+**UC4-DeleteAPerson**
+
+**_Description_** : Ability to delete a person using person's name 
+- Use Console to delete a person

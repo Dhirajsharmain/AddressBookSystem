@@ -27,24 +27,25 @@ public class AddressBook {
             System.out.println("\t\tEnter S to Show Person Detail");
             System.out.println("\t\tEnter Q to Quit ");
             System.out.print("\t\tPlease Select One Option : ");
-            String userInput = scanner.nextLine();
+            char userInput = scanner.nextLine().toUpperCase().charAt(0);
             switch (userInput) {
-                case "A":
+                case 'A':
                     //add
                     addContact();
                     break;
-                case "E":
+                case 'E':
                     //edit
                     editContact();
                     break;
-                case "D":
+                case 'D':
                     //delete
+                    deletePerson();
                     break;
-                case "S":
+                case 'S':
                     //Show
                     System.out.println("\n\t\t" + personList.get(personList.size() - 1).toString());
                     break;
-                case "Q":
+                case 'Q':
                     //Show
                     isExit = true;
                     break;
@@ -60,7 +61,6 @@ public class AddressBook {
      */
     private static void addContact() {
         Person newPerson = new Person();
-        scanner.nextLine();
         System.out.print("Enter Firstname: ");
         newPerson.setFirstName(scanner.nextLine());
 
@@ -128,6 +128,20 @@ public class AddressBook {
 
             System.out.println(personList.toString());
         }
+    }
+
+    private static void deletePerson(){
+        System.out.print("\nEnter the first name of the person to delete : ");
+        String firstName = scanner.nextLine();
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                personList.remove(i);
+                System.out.println("Deleted Successfully");
+            }else {
+                System.out.println("Record not exist");
+            }
+        }
+
     }
 
 }
