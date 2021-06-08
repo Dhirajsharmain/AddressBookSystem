@@ -9,6 +9,16 @@ public class Person {
     private String zip;
     private String mobileNumber;
 
+    public Person(String firstName, String lastName, String address, String city, String state, String zip, String mobileNumber) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.address = address;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.mobileNumber = mobileNumber;
+    }
+
     public String getFirstName() {
         return firstName;
     }

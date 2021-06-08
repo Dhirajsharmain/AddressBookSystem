@@ -8,3 +8,9 @@
 - Naming Convention, Indentation, etc Code Hygiene will be checked during
   Review
 - Git Check In Comments and Version History will be monitored
+
+**UC2-AddaNewContact**
+
+**_Description_** : Ability to add a new Contact to Address Book 
+- Use Console to add person details from AddressBookMain class 
+- Use Object-Oriented Concepts to manage relationship between AddressBook and Contact Person
