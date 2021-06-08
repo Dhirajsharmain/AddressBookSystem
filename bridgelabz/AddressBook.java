@@ -31,6 +31,21 @@ public class AddressBook {
                     System.out.print("Enter First Name : ");
                     personList.add(person);
                     person.setFirstName(scanner.next());
+                    System.out.print("Enter Last Name : ");
+                    personList.add(person);
+                    person.setLastName(scanner.next());
+                    System.out.print("Enter Address : ");
+                    personList.add(person);
+                    person.setAddress(scanner.next());
+                    System.out.print("Enter City : ");
+                    personList.add(person);
+                    person.setCity(scanner.next());
+                    System.out.print("Enter ZipCode : ");
+                    personList.add(person);
+                    person.setZip(scanner.next());
+                    System.out.print("Enter Mobile Number : ");
+                    personList.add(person);
+                    person.setMobileNumber(scanner.next());
                     break;
                 case 2:
                     //Show
