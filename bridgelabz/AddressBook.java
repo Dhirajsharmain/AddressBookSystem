@@ -1,15 +1,15 @@
 package bridgelabz;
 
+import bridgelabz.model.AddressBookModel;
 import bridgelabz.model.Person;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class AddressBook {
 
     private static Scanner scanner = new Scanner(System.in);
     private static List<Person> personList = new ArrayList<>();
+    private static HashMap<String, List<Person>> addressBook = new HashMap<String, List<Person>>();
 
     /**
      * this is the main method, Here is the starting point of the program.
@@ -61,6 +61,11 @@ public class AddressBook {
      */
     private static void addContact() {
         Person newPerson = new Person();
+        AddressBookModel newAddressBook = new AddressBookModel();
+
+        System.out.print("Enter AddressBook Name: ");
+        String addressBookName = scanner.nextLine();
+
         System.out.print("Enter Firstname: ");
         newPerson.setFirstName(scanner.nextLine());
 
@@ -83,7 +88,18 @@ public class AddressBook {
         newPerson.setMobileNumber(scanner.nextLine());
 
         personList.add(newPerson);
-        System.out.println(personList.toString());
+        addAddressBook(addressBookName);
+    }
+
+    private static void addAddressBook(String addressBookName) {
+
+        if (!addressBook.containsKey(addressBookName)) {
+            addressBook.put(addressBookName, personList);
+            System.out.println(Collections.singletonList(addressBook));
+            personList.clear();
+        } else {
+            System.out.println("\n\t\tRecord Already Exist");
+        }
     }
 
     /**
