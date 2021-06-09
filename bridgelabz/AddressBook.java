@@ -92,16 +92,10 @@ public class AddressBook {
     private static void editContact() {
         System.out.print("\nEnter the first name of the person to edit : ");
         String firstName = scanner.nextLine();
-        ArrayList<Person> filteredList = new ArrayList<Person>();
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
-                filteredList.add(personList.get(i));
-            } else {
-                System.out.println("Record not exist");
-            }
-        }
-        if (null != filteredList && filteredList.size() >= 1) {
-            Person person = filteredList.get(0);
+       // ArrayList<Person> filteredList = new ArrayList<>();
+
+        if (null != filter(firstName)) {
+            Person person = filter(firstName);
             System.out.print("\nEnter Lastname: ");
             person.setLastName(scanner.nextLine());
 
@@ -136,15 +130,29 @@ public class AddressBook {
     private static void deletePerson() {
         System.out.print("\nEnter the first name of the person to delete : ");
         String firstName = scanner.nextLine();
-        for (int i = 0; i < personList.size(); i++) {
-            if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
-                personList.remove(i);
+            if (null != filter(firstName)) {
+                personList.remove(filter(firstName));
                 System.out.println("Deleted Successfully");
             } else {
                 System.out.println("Record not exist");
             }
-        }
 
+    }
+
+    /**
+     * Method for filtering the first name from person list queried by user.
+     * @param firstName
+     * @return
+     */
+    private static Person filter(String firstName){
+        for (int i = 0; i < personList.size(); i++) {
+            if (personList.get(i).getFirstName().equalsIgnoreCase(firstName)) {
+                return personList.get(i);
+            } else {
+                System.out.println("Record not exist");
+            }
+        }
+        return null;
     }
 
 }
