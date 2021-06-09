@@ -141,8 +141,8 @@ public class AddressBook {
 
     /**
      * Method for filtering the first name from person list queried by user.
-     * @param firstName
-     * @return
+     * @param firstName : name queried by user.
+     * @return : array related to firstName.
      */
     private static Person filter(String firstName){
         for (int i = 0; i < personList.size(); i++) {
